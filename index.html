@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innova Perícias - Assessoria Jurídica para Peritos Judiciais</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(64, 64, 64, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #C7C5C6;
+        }
+
+        .whatsapp-button {
+            background: #25d366;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .whatsapp-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            background: #20ba5a;
+        }
+
+        .whatsapp-icon {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* Fixed WhatsApp Button */
+        .whatsapp-fixed {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1001;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-fixed:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+            cursor: pointer;
+        }
+
+        .whatsapp-fixed svg {
+            width: 28px;
+            height: 28px;
+            fill: currentColor;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 25px rgba(37, 211, 102, 0.6);
+            }
+            100% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(8, 25, 51, 0.95) 0%, rgba(8, 25, 51, 0.85) 100%), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="handwriting" width="200" height="200" patternUnits="userSpaceOnUse"><path d="M20,50 Q40,30 60,50 T100,50 M20,100 L180,100 M20,150 Q90,130 160,150" stroke="rgba(199,197,198,0.1)" stroke-width="2" fill="none"/></pattern></defs><rect width="100%" height="100%" fill="url(%23handwriting)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(199,197,198,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+        }
+
+        .hero-content {
+            color: white;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #C7C5C6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .slogan {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+            font-weight: 500;
+            color: #C7C5C6;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #25d366;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            background: #20ba5a;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #081933;
+        }
+
+        .section-title p {
+            font-size: 1.125rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(8, 25, 51, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #f3f4f6;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(8, 25, 51, 0.15);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #081933, #C7C5C6);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #081933;
+        }
+
+        .service-card p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #081933;
+        }
+
+        .about-text p {
+            font-size: 1.125rem;
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .about-features {
+            list-style: none;
+        }
+
+        .about-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+            color: #374151;
+        }
+
+        .about-features li::before {
+            content: '✓';
+            background: #10b981;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, rgba(8, 25, 51, 0.9), rgba(199, 197, 198, 0.7)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><defs><pattern id="legal" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M25,5 L45,25 L25,45 L5,25 Z" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23legal)"/></svg>');
+            height: 400px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #081933, #1f2937);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #C7C5C6;
+        }
+
+        .stat-item p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #081933, #1f2937);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: #081933;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #C7C5C6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #C7C5C6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 1rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #081933;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(8, 25, 51, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #1e40af;
+            transform: translateX(-50%) translateY(-3px);
+            box-shadow: 0 6px 20px rgba(8, 25, 51, 0.4);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: 90px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .slogan {
+                font-size: 1.25rem;
+            }
+
+            .hero p {
+                font-size: 1.125rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .whatsapp-fixed {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-fixed svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top" id="backToTop">
+        ↑ Voltar ao Topo
+    </a>
+
+    <!-- Fixed WhatsApp Button -->
+    <a href="https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre os serviços da Innova Perícias." class="whatsapp-fixed" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.5 3.5C18.25 1.25 15.2 0 12 0C5.45 0 0.1 5.35 0.1 11.9C0.1 14 0.65 16.05 1.7 17.85L0 24L6.35 22.35C8.1 23.3 10.05 23.8 12.05 23.8C18.6 23.8 23.95 18.45 23.95 11.9C23.95 8.7 22.7 5.65 20.5 3.5ZM12 21.8C10.25 21.8 8.55 21.35 7.05 20.5L6.7 20.3L2.9 21.35L3.95 17.7L3.7 17.3C2.8 15.75 2.3 13.85 2.3 11.9C2.3 6.55 6.65 2.2 12 2.2C14.6 2.2 17.05 3.25 18.85 5.05C20.65 6.85 21.7 9.3 21.7 11.9C21.7 17.25 17.35 21.8 12 21.8ZM17.3 14.35C17 14.2 15.55 13.5 15.3 13.4C15.05 13.3 14.9 13.25 14.75 13.55C14.6 13.85 14.05 14.5 13.9 14.65C13.75 14.8 13.6 14.85 13.3 14.7C13 14.55 12.05 14.25 10.9 13.25C10 12.5 9.4 11.55 9.25 11.25C9.1 10.95 9.25 10.8 9.4 10.65C9.55 10.5 9.7 10.25 9.85 10.1C10 9.95 10.05 9.85 10.15 9.7C10.25 9.55 10.2 9.4 10.125 9.25C10.05 9.1 9.4 7.65 9.2 7.05C9 6.45 8.8 6.55 8.65 6.55C8.5 6.55 8.35 6.55 8.2 6.55C8.05 6.55 7.8 6.6 7.55 6.9C7.3 7.2 6.55 7.9 6.55 9.35C6.55 10.8 7.6 12.2 7.75 12.35C7.9 12.5 9.4 14.9 11.75 16C12.35 16.3 12.8 16.45 13.15 16.55C13.75 16.75 14.3 16.725 14.75 16.65C15.25 16.575 16.45 15.95 16.7 15.25C16.95 14.55 16.95 13.95 16.875 13.85C16.8 13.75 16.65 13.7 16.35 13.55L17.3 14.35Z"/>
+        </svg>
+    </a>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" alt="Innova Perícias" />
+            </div>
+            <ul class="nav-links">
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#mission">Missão e Valores</a></li>
+            </ul>
+            <a href="https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre os serviços da Innova Perícias." class="whatsapp-button" target="_blank">
+                <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.5 3.5C18.25 1.25 15.2 0 12 0C5.45 0 0.1 5.35 0.1 11.9C0.1 14 0.65 16.05 1.7 17.85L0 24L6.35 22.35C8.1 23.3 10.05 23.8 12.05 23.8C18.6 23.8 23.95 18.45 23.95 11.9C23.95 8.7 22.7 5.65 20.5 3.5ZM12 21.8C10.25 21.8 8.55 21.35 7.05 20.5L6.7 20.3L2.9 21.35L3.95 17.7L3.7 17.3C2.8 15.75 2.3 13.85 2.3 11.9C2.3 6.55 6.65 2.2 12 2.2C14.6 2.2 17.05 3.25 18.85 5.05C20.65 6.85 21.7 9.3 21.7 11.9C21.7 17.25 17.35 21.8 12 21.8ZM17.3 14.35C17 14.2 15.55 13.5 15.3 13.4C15.05 13.3 14.9 13.25 14.75 13.55C14.6 13.85 14.05 14.5 13.9 14.65C13.75 14.8 13.6 14.85 13.3 14.7C13 14.55 12.05 14.25 10.9 13.25C10 12.5 9.4 11.55 9.25 11.25C9.1 10.95 9.25 10.8 9.4 10.65C9.55 10.5 9.7 10.25 9.85 10.1C10 9.95 10.05 9.85 10.15 9.7C10.25 9.55 10.2 9.4 10.125 9.25C10.05 9.1 9.4 7.65 9.2 7.05C9 6.45 8.8 6.55 8.65 6.55C8.5 6.55 8.35 6.55 8.2 6.55C8.05 6.55 7.8 6.6 7.55 6.9C7.3 7.2 6.55 7.9 6.55 9.35C6.55 10.8 7.6 12.2 7.75 12.35C7.9 12.5 9.4 14.9 11.75 16C12.35 16.3 12.8 16.45 13.15 16.55C13.75 16.75 14.3 16.725 14.75 16.65C15.25 16.575 16.45 15.95 16.7 15.25C16.95 14.55 16.95 13.95 16.875 13.85C16.8 13.75 16.65 13.7 16.35 13.55L17.3 14.35Z"/>
+                </svg>
+                Falar Conosco
+            </a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Innova Perícias</h1>
+                <div class="slogan">Assessoria Jurídica para Peritos Judiciais</div>
+                <p>Oferecemos suporte especializado e consultoria completa para peritos judiciais, garantindo excelência técnica e conformidade legal em todas as suas atividades periciais.</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre os serviços da Innova Perícias." class="btn-primary" target="_blank">
+                        <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.5 3.5C18.25 1.25 15.2 0 12 0C5.45 0 0.1 5.35 0.1 11.9C0.1 14 0.65 16.05 1.7 17.85L0 24L6.35 22.35C8.1 23.3 10.05 23.8 12.05 23.8C18.6 23.8 23.95 18.45 23.95 11.9C23.95 8.7 22.7 5.65 20.5 3.5ZM12 21.8C10.25 21.8 8.55 21.35 7.05 20.5L6.7 20.3L2.9 21.35L3.95 17.7L3.7 17.3C2.8 15.75 2.3 13.85 2.3 11.9C2.3 6.55 6.65 2.2 12 2.2C14.6 2.2 17.05 3.25 18.85 5.05C20.65 6.85 21.7 9.3 21.7 11.9C21.7 17.25 17.35 21.8 12 21.8ZM17.3 14.35C17 14.2 15.55 13.5 15.3 13.4C15.05 13.3 14.9 13.25 14.75 13.55C14.6 13.85 14.05 14.5 13.9 14.65C13.75 14.8 13.6 14.85 13.3 14.7C13 14.55 12.05 14.25 10.9 13.25C10 12.5 9.4 11.55 9.25 11.25C9.1 10.95 9.25 10.8 9.4 10.65C9.55 10.5 9.7 10.25 9.85 10.1C10 9.95 10.05 9.85 10.15 9.7C10.25 9.55 10.2 9.4 10.125 9.25C10.05 9.1 9.4 7.65 9.2 7.05C9 6.45 8.8 6.55 8.65 6.55C8.5 6.55 8.35 6.55 8.2 6.55C8.05 6.55 7.8 6.6 7.55 6.9C7.3 7.2 6.55 7.9 6.55 9.35C6.55 10.8 7.6 12.2 7.75 12.35C7.9 12.5 9.4 14.9 11.75 16C12.35 16.3 12.8 16.45 13.15 16.55C13.75 16.75 14.3 16.725 14.75 16.65C15.25 16.575 16.45 15.95 16.7 15.25C16.95 14.55 16.95 13.95 16.875 13.85C16.8 13.75 16.65 13.7 16.35 13.55L17.3 14.35Z"/>
+                        </svg>
+                        Falar Conosco
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossos Serviços</h2>
+                <p>Soluções completas e especializadas para peritos judiciais, com foco em qualidade técnica e conformidade legal.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">⚖️</div>
+                    <h3>Assessoria Jurídica</h3>
+                    <p>Orientação legal especializada para peritos judiciais, garantindo conformidade com as normativas e regulamentações vigentes.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">📋</div>
+                    <h3>Elaboração de Laudos</h3>
+                    <p>Suporte na estruturação e elaboração de laudos periciais técnicos
