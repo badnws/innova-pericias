@@ -156,10 +156,10 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, rgba(8, 25, 51, 0.75) 0%, rgba(8, 25, 51, 0.65) 100%), 
-                        url('fundo_site2.jpeg');
+            background-image: linear-gradient(135deg, rgba(8, 25, 51, 0.75) 0%, rgba(8, 25, 51, 0.65) 100%), 
+                             url('images/fundo.jpeg');
             background-size: cover;
-            background-position: center;
+            background-position: center center;
             background-repeat: no-repeat;
             position: relative;
             overflow: hidden;
@@ -335,17 +335,21 @@
 
         .mission-features {
             list-style: none;
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 500px;
+            margin: 2rem auto 0;
         }
 
         .mission-features li {
             display: flex;
             align-items: center;
+            justify-content: center;
             margin-bottom: 1rem;
             font-size: 1.125rem;
             color: #374151;
+            text-align: left;
         }
 
         .mission-features li::before {
